@@ -1,0 +1,1277 @@
+@charset "UTF-8";
+/* variables */
+/* mixins */
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+html, body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, a {
+  margin: 0;
+  padding: 0;
+}
+
+body, table, input, textarea, button, select {
+  font-size: 1.8rem;
+  font-family: "Yoon Gothic 750", "YoonGothicPro750", "Yoon 윤고딕 750", "Roboto", "sans-serif";
+  line-height: normal;
+  color: #eee;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+}
+
+img, fieldset, button {
+  border: 0;
+}
+
+input, textarea, img {
+  vertical-align: top;
+}
+
+button {
+  cursor: pointer;
+  background: 0;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
+strong {
+  font-weight: normal;
+}
+
+input {
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="text"], input[type="password"] {
+  color: #eee;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+  font-size: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+em, address {
+  font-style: normal;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  color: #eee;
+}
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+hr, caption, legend {
+  display: none;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+}
+
+#root {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+}
+
+#layer, #modal, #toast, #error {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* variables */
+/* mixins */
+/* 전체 공통 */
+.container {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url("../image/bg-disneyplus1.jpg");
+}
+
+.main-text {
+  line-height: 1.44;
+  text-align: center;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3.4rem;
+}
+
+.main-text em {
+  color: #ffc000;
+}
+
+.title-text {
+  line-height: 1.44;
+  font-size: 2.4rem;
+}
+
+.title-text em {
+  color: #ffc000;
+}
+
+.sub-text {
+  font-size: 2rem;
+}
+
+.sub-text em {
+  color: #ffc000;
+}
+
+.etc {
+  font-size: 1.6rem;
+  color: #a9a9a9;
+}
+
+.etc em {
+  color: #eee;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input[type=checkbox] {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #535358;
+  border-radius: 3px;
+}
+
+.checkbox input[type=checkbox]:checked {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  border: none;
+}
+
+.checkbox input[type=checkbox]:checked::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  background-image: url("../image/ic-check-focus.png");
+}
+
+.checkbox input[type=checkbox]:checked + label {
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  color: #ffc000;
+}
+
+.checkbox label {
+  margin-left: 12px;
+  font-size: 20px;
+  color: #eee;
+}
+
+.input-text {
+  position: relative;
+  width: 445px;
+  height: 53px;
+  background-color: #eee;
+}
+
+.input-text .placeholder, .input-text .input-text-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  line-height: 53px;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #999;
+}
+
+.input-text .input-text-wrap {
+  display: flex;
+  justify-content: center;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.1rem;
+  color: #303030;
+}
+
+.input-text.focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0 4px #ffc000;
+}
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  padding: 8px 11px;
+  border-radius: 11px;
+  text-align: left;
+  font-size: 1.3rem;
+  line-height: 1.54;
+  background-color: #303030;
+}
+
+.tooltip::before {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  left: unset;
+  top: 18px;
+  right: -3px;
+  width: 9px;
+  height: 9px;
+  border-left: 4px solid #303030;
+  border-bottom: 4px solid #303030;
+  border-radius: 2px;
+  transform: rotate(-124deg) skewY(-20deg);
+}
+
+.button-area {
+  display: flex;
+  justify-content: center;
+}
+
+.button-area button {
+  position: relative;
+  width: 193px;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 7px;
+  background-color: #303030;
+}
+
+.button-area button span {
+  position: relative;
+  z-index: 1;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2rem;
+}
+
+.button-area button:last-child {
+  margin-right: 0;
+}
+
+.button-area button.focus::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  transform: translateY(-2px);
+  background-color: #ffc000;
+}
+
+.button-area button.focus span {
+  font-size: 2.1rem;
+  color: #353539;
+}
+
+.button-area button.dimmed {
+  opacity: 0.6;
+}
+
+.button-area button.dimmed span {
+  opacity: 0.3;
+}
+
+.hellotv-logo {
+  font-size: 0;
+  color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 54px;
+  top: 50px;
+  width: 80px;
+  height: 18px;
+  background-image: url("../image/logo-hellotv.png");
+}
+
+.disneyplus-logo {
+  font-size: 0;
+  color: rgba(0, 0, 0, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 62px;
+  top: 27px;
+  width: 104px;
+  height: 56px;
+  background-image: url("../image/logo-disneyplus.png");
+}
+
+/* 메인홈 */
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+.main .main-text {
+  text-align: left;
+}
+
+.main .contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1147px;
+  margin-bottom: 67px;
+  padding: 0 80px 0 14px;
+}
+
+.main .contents .main-text {
+  line-height: 1.42;
+  font-size: 4.5rem;
+}
+
+.main .contents .logo-disney {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 284px;
+  height: 159px;
+  background-image: url("../image/logo-disneyplus.png");
+}
+
+.main .button-area div {
+  position: relative;
+  height: 315px;
+  text-align: center;
+  border: 1px solid rgba(238, 238, 238, 0.2);
+  background-color: rgba(8, 13, 25, 0.6);
+}
+
+.main .button-area div h3 {
+  height: 75px;
+  line-height: 75px;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(48, 48, 48, 0.2);
+}
+
+.main .button-area div p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85px;
+  line-height: 1.6;
+  margin: 21px 0 34px;
+  font-size: 2rem;
+  color: rgba(238, 238, 238, 0.7);
+}
+
+.main .button-area div span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  height: 60px;
+  padding: 0 16px;
+  line-height: 60px;
+  background-color: #303030;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2rem;
+}
+
+.main .button-area div.focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0 4px #ffc000;
+}
+
+.main .button-area div.focus h3 {
+  color: #ffc000;
+}
+
+.main .button-area div.focus p {
+  color: #ffc000;
+}
+
+.main .button-area div.focus span {
+  z-index: 1;
+  height: 64px;
+  line-height: 64px;
+  font-size: 2.1rem;
+  color: #000;
+}
+
+.main .button-area div.focus span::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc000;
+}
+
+.main .button-area .button-join {
+  width: 664px;
+  margin-right: 54px;
+}
+
+.main .button-area .button-join span {
+  min-width: 265px;
+}
+
+.main .button-area .button-login {
+  width: 429px;
+}
+
+.main .button-area .button-login span {
+  width: 165px;
+}
+
+/* 서비스 가입 */
+.join {
+  padding-top: 27px;
+}
+
+.join .join-step1 .step-info {
+  background-image: url("../image/img-step1.png");
+}
+
+.join .join-step1 .step1 {
+  display: block;
+}
+
+.join .join-step3-1 .step-info {
+  background-image: url("../image/img-step3.png");
+}
+
+.join .join-step3-1 .step3-1 {
+  display: block;
+}
+
+.join .join-step2 .step-info {
+  background-image: url("../image/img-step2.png");
+}
+
+.join .join-step2 .step2 {
+  display: block;
+}
+
+.join .join-step3-2 .step-info {
+  background-image: url("../image/img-step3.png");
+}
+
+.join .join-step3-2 .step3-2 {
+  display: block;
+}
+
+.join .step-info {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 600px;
+  height: 64px;
+  margin: 0 auto;
+}
+
+.join .step-info span {
+  font-size: 0;
+  color: rgba(0, 0, 0, 0);
+}
+
+.join .step {
+  display: none;
+}
+
+.join .main-text {
+  position: relative;
+  margin: 42px 0;
+}
+
+.join .contents {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.join .step1 .terms {
+  position: relative;
+  width: 840px;
+  height: 320px;
+  margin: 0 auto 80px;
+  padding: 28px 22px 31px;
+  line-height: 1;
+  font-size: 1.6rem;
+  border: 1px solid rgba(192, 192, 192, 0.5);
+  background-color: rgba(8, 13, 25, 0.6);
+}
+
+.join .step1 .terms .text-area {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.join .step1 .terms .checkbox {
+  justify-content: center;
+  margin-bottom: 27px;
+}
+
+.join .step1 .terms .checkbox label {
+  font-size: 2.4rem;
+}
+
+.join .step1 .terms p {
+  display: flex;
+  flex-wrap: wrap;
+  width: 794px;
+  height: 106px;
+  margin: 27px 0;
+  padding: 27px 0;
+  border-top: 1px solid rgba(238, 238, 238, 0.4);
+  border-bottom: 1px solid rgba(238, 238, 238, 0.4);
+  text-align: left;
+}
+
+.join .step1 .terms p > span {
+  font-size: 1.4rem;
+}
+
+.join .step1 .terms p > span:first-child {
+  margin-bottom: 15px;
+}
+
+.join .step1 .terms p > span:nth-child(odd) {
+  width: 343px;
+}
+
+.join .step1 .terms span {
+  line-height: 1.02;
+  font-size: 1.7rem;
+}
+
+.join .step1 .terms.focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0 4px #ffc000;
+}
+
+.join .step1 .terms.focus .checkbox input[type=checkbox] {
+  border-color: #ffc000;
+}
+
+.join .step2 .sub-text {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.join .step2 .scroll-contents {
+  position: relative;
+  width: 840px;
+  height: 320px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  background-color: rgba(8, 13, 25, 0.3);
+}
+
+.join .step2 .scroll-contents .terms {
+  overflow: hidden;
+  height: 212px;
+  padding-right: 26px;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.4);
+}
+
+.join .step2 .scroll-contents .terms .text-area {
+  padding: 20px 0;
+  line-height: 1.42;
+  text-align: left;
+  font-size: 1.7rem;
+  word-break: keep-all;
+}
+
+.join .step2 .scroll-contents .terms .text-area em {
+  display: block;
+  margin-bottom: 16px;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+}
+
+.join .step2 .scroll-contents .terms .text-area em:first-child {
+  margin-bottom: 16px;
+}
+
+.join .step2 .scroll-contents .terms .text-area em:last-child {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.join .step2 .scroll-contents .terms .text-area p {
+  margin-left: 10px;
+  text-indent: -15px;
+}
+
+.join .step2 .scroll-contents .terms .text-area p + p {
+  margin-top: 8px;
+}
+
+.join .step2 .scroll-contents .info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 108px;
+}
+
+.join .step2 .scroll-contents .info p {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.join .step2 .scroll-contents .info p em {
+  margin: 0 9px 0 14px;
+  font-size: 3.4rem;
+  color: #ffc000;
+}
+
+.join .step2 .scroll-contents .info p span {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #a9a9a9;
+}
+
+.join .step2 .scroll-contents .info span {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.4rem;
+  color: #a9a9a9;
+  white-space: nowrap;
+}
+
+.join .step2 .scroll-contents.top-cover .terms, .join .step2 .scroll-contents.bottom-cover .terms {
+  position: relative;
+}
+
+.join .step2 .scroll-contents.top-cover .terms::before, .join .step2 .scroll-contents.top-cover .terms::after, .join .step2 .scroll-contents.bottom-cover .terms::before, .join .step2 .scroll-contents.bottom-cover .terms::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  left: -20px;
+  z-index: 1;
+  width: 840px;
+  height: 49px;
+}
+
+.join .step2 .scroll-contents.top-cover .terms::before {
+  background-image: linear-gradient(to top, rgba(7, 17, 48, 0) 0%, #071130);
+}
+
+.join .step2 .scroll-contents.bottom-cover .terms::after {
+  top: auto;
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(9, 26, 68, 0), #091a44);
+}
+
+.join .step2 .scroll-contents .scroll {
+  position: absolute;
+  z-index: 2;
+  width: 4px;
+  height: 185px;
+  background-color: rgba(238, 238, 238, 0.18);
+  top: 12px;
+  right: 20px;
+}
+
+.join .step2 .scroll-contents .scroll span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 107px;
+  background-color: rgba(238, 238, 238, 0.8);
+}
+
+.join .step3-1 .main-text {
+  position: relative;
+  margin-bottom: 62px;
+  padding-bottom: 35px;
+}
+
+.join .step3-1 .main-text::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: unset;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 2px;
+  background-color: rgba(238, 238, 238, 0.3);
+}
+
+.join .step3-1 .title-text {
+  text-align: center;
+}
+
+.join .step3-1 .sub-text {
+  margin-bottom: 131px;
+}
+
+.join .step3-1 .input-text {
+  margin: 27px auto;
+}
+
+.join .step3-2 .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 840px;
+  height: 280px;
+  margin: 0 auto;
+  background-color: rgba(8, 13, 25, 0.3);
+}
+
+.join .step3-2 .image img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 665px;
+  height: 247px;
+}
+
+.join .step3-2 .etc {
+  text-align: center;
+  margin: 20px 0 32px;
+}
+
+.join .step3-2 .button-area .button:first-child {
+  width: 216px;
+}
+
+/* step3-flow */
+.step3-flow .resend-message {
+  width: 100%;
+  height: 100%;
+  padding-top: 133px;
+}
+
+.step3-flow .resend-message .main-text {
+  position: relative;
+  margin-bottom: 67px;
+  padding-bottom: 35px;
+}
+
+.step3-flow .resend-message .main-text::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  top: unset;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 2px;
+  background-color: rgba(238, 238, 238, 0.3);
+}
+
+.step3-flow .resend-message .contents {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.step3-flow .resend-message .title-text {
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+.step3-flow .resend-message .input-text {
+  margin-bottom: 144px;
+}
+
+/* variables */
+/* mixins */
+.popup-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.71);
+}
+
+.popup-container .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  overflow: hidden;
+  width: 513px;
+  padding: 0 32px;
+  text-align: center;
+  background-color: #2b292c;
+}
+
+.popup-container .popup.medium {
+  width: 917px;
+}
+
+.popup-container .popup .popup-header {
+  height: 95px;
+  line-height: 95px;
+  border-bottom: 1px solid #777;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 3.0rem;
+}
+
+.popup-container .popup .popup-body {
+  padding: 22px 0;
+  border-bottom: 1px solid #777;
+}
+
+.popup-container .popup .popup-body.no-line {
+  border-bottom: none;
+}
+
+.popup-container .popup h4 {
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.8rem;
+  color: #ffc000;
+}
+
+.popup-container .popup p {
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 1.8rem;
+  color: #b1b1b1;
+}
+
+.popup-container .popup p em {
+  font-size: 1.9rem;
+  color: #ffc000;
+}
+
+.popup-container .popup .sub-text {
+  font-size: 1.6rem;
+  color: #777;
+}
+
+.popup-container .popup .sub-text em {
+  font-size: 1.5rem;
+  color: #b49569;
+}
+
+.popup-container .popup .popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 114px;
+}
+
+.popup-container .popup .popup-footer button {
+  position: relative;
+  width: 132px;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 7px;
+  border: 1px solid #424241;
+  background-color: #303030;
+}
+
+.popup-container .popup .popup-footer button span {
+  position: relative;
+  z-index: 2;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 1.8rem;
+}
+
+.popup-container .popup .popup-footer button:last-child {
+  margin-right: 0;
+}
+
+.popup-container .popup .popup-footer button.focus::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 148px;
+  height: 57px;
+  z-index: 1;
+  transform: translate(-8px, -3.5px);
+  background-color: #ffc000;
+}
+
+.popup-container .popup .popup-footer button.focus span {
+  font-size: 2rem;
+  color: #353539;
+}
+
+.popup-container .white-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  overflow: hidden;
+  width: 426px;
+  text-align: center;
+  color: #353539;
+  background-color: #eee;
+}
+
+.popup-container .white-popup .popup-header {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid rgba(194, 192, 199, 0.5);
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.1rem;
+}
+
+.popup-container .white-popup .popup-body {
+  padding: 32px 0;
+}
+
+.popup-container .white-popup p {
+  line-height: 1.45;
+  font-size: 1.8rem;
+  color: #353539;
+}
+
+.popup-container .white-popup p em {
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+}
+
+.popup-container .white-popup p + p {
+  margin-top: 22px;
+}
+
+.popup-container .white-popup .txt-red {
+  color: #ec174d;
+}
+
+.popup-container .white-popup .popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 13px 13px;
+}
+
+.popup-container .white-popup .popup-footer button {
+  position: relative;
+  width: 193px;
+  height: 60px;
+  line-height: 60px;
+  margin-right: 7px;
+  background-color: #303030;
+  flex: 1;
+  color: #353539;
+  background-color: #d4d4d8;
+}
+
+.popup-container .white-popup .popup-footer button span {
+  position: relative;
+  z-index: 1;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2rem;
+}
+
+.popup-container .white-popup .popup-footer button:last-child {
+  margin-right: 0;
+}
+
+.popup-container .white-popup .popup-footer button.focus::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  transform: translateY(-2px);
+  background-color: #ffc000;
+}
+
+.popup-container .white-popup .popup-footer button.focus span {
+  font-size: 2.1rem;
+  color: #353539;
+}
+
+.popup-container .white-popup .popup-footer button.dimmed {
+  opacity: 0.6;
+}
+
+.popup-container .white-popup .popup-footer button.dimmed span {
+  opacity: 0.3;
+}
+
+.popup-container .white-popup .popup-footer button.dimmed {
+  background-color: #ddd;
+  color: #8b8b8b;
+}
+
+.popup-container .join-popup .popup-header, .popup-container .cancle-popup .popup-header {
+  text-align: left;
+}
+
+.popup-container .join-popup .popup-body, .popup-container .cancle-popup .popup-body {
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 0 14px;
+}
+
+.popup-container .join-popup .popup-body img, .popup-container .cancle-popup .popup-body img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 220px;
+  height: 220px;
+}
+
+.popup-container .join-popup .popup-body .text-area, .popup-container .cancle-popup .popup-body .text-area {
+  text-align: left;
+}
+
+.popup-container .join-popup .popup-body .text-area p, .popup-container .cancle-popup .popup-body .text-area p {
+  line-height: 30px;
+}
+
+.popup-container .join-popup .popup-body .text-area .sub-text, .popup-container .cancle-popup .popup-body .text-area .sub-text {
+  margin-top: 13px;
+}
+
+.popup-container .join-popup .popup-footer, .popup-container .cancle-popup .popup-footer {
+  height: auto;
+  margin-bottom: 32px;
+}
+
+.popup-container .join-popup .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 597px;
+  height: 59px;
+  margin-bottom: 24px;
+  padding: 0 20px;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 1.9rem;
+  color: #b1b1b1;
+  background-color: #1e1e1e;
+}
+
+.popup-container .join-popup .price span {
+  position: relative;
+  font-size: 2.8rem;
+}
+
+.popup-container .join-popup .price span.ic-price::before {
+  display: inline-block;
+  content: '';
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  margin-right: 7px;
+  vertical-align: middle;
+  background-image: url("../image/ic-won.png");
+}
+
+.popup-container .join-popup .message-text {
+  display: none;
+}
+
+.popup-container .cancle-popup .message-text {
+  margin-bottom: 24px;
+  line-height: 59px;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 1.9rem;
+  color: #ffc000;
+}
+
+.popup-container .cancle-popup .price {
+  display: none;
+}
+
+.popup-container .complete-popup h4 {
+  margin-bottom: 10px;
+}
+
+.popup-container .complete-popup p + .sub-text {
+  margin-top: 20px;
+}
+
+.popup-container .complete-popup .sub-text {
+  line-height: 1.55;
+}
+
+.popup-container .notice-popup .popup-body {
+  padding: 30px 0;
+}
+
+.popup-container .notice-popup .popup-body .body-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 92px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.popup-container .notice-popup .popup-body .body-text p + p {
+  margin-top: 20px;
+}
+
+.popup-container .error-popup em {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.popup-toast {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 20px 40px;
+  line-height: 1.44;
+  font-size: 2.1rem;
+  color: #080d19;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.3);
+  background-color: #eee;
+}
+
+.gradient-toast {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 276px;
+  background-image: url("../image/bg-gradient.png");
+}
+
+.gradient-toast p {
+  display: flex;
+  align-items: center;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+  line-height: 43px;
+  padding-bottom: 32px;
+  text-align: center;
+  font-family: "Yoon Gothic 770", "YoonGothicPro770", "Yoon 윤고딕 770";
+  font-size: 2.8rem;
+}
+
+.purchase-popup .input-password {
+  display: flex;
+  justify-content: center;
+  margin: 23px 0 31px;
+}
+
+.purchase-popup .input-password span {
+  position: relative;
+  width: 69px;
+  height: 69px;
+  margin-right: 14px;
+  background-color: #ddd;
+}
+
+.purchase-popup .input-password span:last-child {
+  margin-right: 0;
+}
+
+.purchase-popup .input-password span.focus {
+  background-color: #eee;
+}
+
+.purchase-popup .input-password span.focus::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 0 0 4px #ffc000;
+}
+
+.purchase-popup .input-password span.entered::after {
+  position: absolute;
+  display: inline-block;
+  content: '';
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  background-size: 25px 25px;
+  background-image: url("../image/ic-password.png");
+}

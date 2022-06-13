@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n2_step3_flow</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- react 구조 -->
+    <div id="root">
+        <!-- container -->
+        <div class="container step3-flow">
+
+            <!-- logo -->
+            <h1 class="hellotv-logo">Hello tv</h1>
+            <h1 class="disneyplus-logo">disney plus</h1>
+
+            <!-- 문자메시지 다시받기 및 홈상품 가입 후 Activation 미완료 상태 시 제공하는 화면-->
+            <div class="resend-message">
+                <p class="main-text">
+                    디즈니+ 월정액에 이미 가입하셨네요.<br />
+                    헬로tv에서 디즈니+를 이용하려면 휴대폰에서 계정을 만들어야 해요. 
+                </p>
+                <div class="contents">
+                    <p class="title-text">
+                        지금 휴대폰으로 계정을 만들 수 있는 문자메시지를 보내드릴게요.<br />
+                        휴대폰 번호를 입력해 주세요.
+                    </p>
+                    <div class="input-text focus">
+                        <span class="placeholder">- 없이 숫자만 입력해 주세요.</span>
+                        <p class="input-text-wrap">
+                            <span>0</span>
+                            <span>1</span>
+                            <span>0</span>
+                            <span>8</span>
+                            <span>0</span>
+                            <span>8</span>
+                            <span>0</span>
+                            <span>8</span>
+                            <span>0</span>
+                            <span>8</span>
+                            <span>0</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="button" class="button">
+                        <span>취소</span>
+                    </button>
+                    <button type="button" class="button dimmed">
+                        <span>문자메시지 받기</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //문자메시지 재발송 -->       
+        </div>
+        <!-- container -->
+    </div>
+    <!-- //root -->
+</body>
+</html>

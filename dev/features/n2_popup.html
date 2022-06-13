@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>n2_popup</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+    <!-- react 구조 -->
+    <div id="root">
+        
+        <!-- popup-container -->
+        <div class="popup-container">
+
+            <!-- 팝업_가입 해지 -->
+            <!-- 해지팝업일시 cancle-popup클래스로 입력 -->
+            <div class="popup medium join-popup" style="display: none;">
+                <div class="popup-header">
+                    <h3>디즈니+ 월정액</h3>
+                </div>
+                <div class="popup-body no-line">
+                    <img src="../assets/image/img-disneyplus.png" />
+                    <div class="text-area">
+                        <!-- 가입팝업시 나오는 가격문구 -->
+                        <div class="price">
+                            <p>월별 결제금액</p>
+                            <span class="ic-price">월 9,900원</span><!--쿠폰이용시 ic-price클래서 제거-->
+                        </div>
+                        <!-- 해지팝업일시 나오는 문구 -->
+                        <p class="message-text">상품을 해지하시면 디즈니의 콘텐츠 혜택을 더 이상 받으실 수 없습니다.</p>
+                        <p>
+                            디즈니, 마블, 스타워즈, 내셔널지오그래픽, 20세기 스튜디오 등 오리지널<br />
+                            콘텐츠가 포함된 영화, 시리즈를 시청해 보세요!
+                        </p>
+                        <p class="sub-text">(※ 가입 후 매월 자동연장 / 해지 시 이용기간에 따라 과금)</p>
+                    </div>
+                </div>
+                <div class="popup-footer">
+                    <button class="button focus">
+                        <span>가입하기</span>
+                    </button>
+                    <button class="button">
+                        <span>취소</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //팝업_가입 해지 -->
+            
+            <!-- 팝업_가입해지 완료 -->
+            <div class="popup complete-popup" style="display: none;">
+                <div class="popup-header">
+                    <h3>가입 해지 완료</h3>
+                </div>
+                <div class="popup-body">
+                    <h4>디즈니+ 월정액</h4>
+                    <p>서비스 이용 가능기간 : ~2021년 10월 26일</p>
+                    <p class="sub-text">
+                        <em>
+                            ※ 그 동안 이용해 주셔서 감사합니다.<br />
+                            ※ 잔여 이용 기간까지는 시청이 가능합니다.<br />
+                            (구독권은 이용 만료일까지 시청 가능)
+                        </em>
+                    </p>
+                </div>
+                <div class="popup-footer">
+                    <button class="button focus">
+                        <span>닫기</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //팝업_가입해지 완료 -->
+
+            <!-- 예외케이스 팝업 -->
+            <div class="popup notice-popup" style="display: block;">
+                <div class="popup-header">
+                    <h3>알림</h3>
+                </div>
+                <div class="popup-body">
+                    <div class="body-text">
+                        <p>
+                            일시적인 오류가 발생했습니다.<br />
+                            이용에 불편을 드려 죄송합니다.
+                        </p>
+                        <p>디즈니+로 이동하셔서 서비스를 즐겨보세요.</p>
+                    </div>
+                    <p class="sub-text">
+                        <em>※ [디즈니+ 이동]버튼을 선택하시면, 디즈니+로 이동합니다.</em>
+                    </p>
+                </div>
+                <div class="popup-footer">
+                    <button class="button focus">
+                        <span>디즈니+ 이동</span>
+                    </button>
+                    <button class="button">
+                        <span>취소</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //예외케이스 팝업 -->
+
+            <!-- 팝업_서비스가입 안내 -->
+            <div class="white-popup" style="display: none;">
+                <div class="popup-header">
+                    <h3>서비스 가입 안내</h3>
+                </div>
+                <div class="popup-body">
+                    <p>
+                        고객님은 이미 디즈니+ 서비스 월정액에<br />
+                        가입하셨습니다.<br />
+                        디즈니+ 계정을 만들거나, 로그인해주세요.
+                    </p>
+                </div>
+                <div class="popup-footer">
+                    <button class="button">
+                        <span>계정 만들기</span>
+                    </button>
+                    <button class="button focus">
+                        <span>로그인</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //팝업_서비스가입 안내 -->
+
+            <!-- 팝업_서비스가입 안내 -->
+            <div class="white-popup error-popup" style="display: none;">
+                <div class="popup-header">
+                    <h3>월정액 가입 오류</h3>
+                </div>
+                <div class="popup-body">
+                    <p><em>일시적인 오류가 발생했습니다.</em></p>
+                    <p>
+                        고객님, 이용에 불편을 드려 죄송합니다.<br />
+                        서비스 가입 중 일시적 오류가 발생했습니다.<br />
+                        다시 시도해주세요.
+                    </p>
+                    <p>
+                        지금 시도한 가입은 처리되지 않았으며<br />
+                        이용요금도 발생하지 않습니다.
+                    </p>
+                </div>
+                <div class="popup-footer">
+                    <button class="button focus">
+                        <span>닫기</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //팝업_서비스가입 안내 -->
+
+            <!-- 팝업_청구서 결제 팝업 -->
+            <div class="white-popup purchase-popup" style="display: block;">
+                <div class="popup-header">
+                    <h3>청구서 결제</h3>
+                </div>
+                <div class="popup-body">
+                    <p>구매 비밀번호 <em>4자리</em>를 입력하여 주세요.</p>
+                    <div class="input-password">
+                        <span class="entered"></span>
+                        <span class="focus"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>
+                        ※ 결제 금액은 부가세 포함하여<br />
+                        헬로tv 이용금액에 합산되어 청구됩니다.
+                    </p>
+                </div>
+                <div class="popup-footer">
+                    <button class="button">
+                        <span>취소</span>
+                    </button>
+                    <button class="button focus">
+                        <span>확인</span>
+                    </button>
+                </div>
+            </div>
+            <!-- //팝업_청구서 결제 팝업 -->
+
+            <!-- popup-toast -->
+            <div class="popup-toast">
+                구매가 완료되었습니다.
+            </div>
+            <!-- //popup-toast -->
+
+            <!-- 휴대폰번호 잘못입력시 나타나는 토스트팝업 -->
+            <!-- gradient-toast -->
+            <div class="gradient-toast">
+                <p>
+                    휴대폰 번호가 잘못 입력되었습니다.<br />
+                    다시 입력해 주세요.
+                </p>
+            </div>
+            <!-- //gradient-toast -->
+
+        </div>
+        <!-- //popup-container -->
+
+    </div>
+    <!-- //root -->
+</body>
+
+</html>

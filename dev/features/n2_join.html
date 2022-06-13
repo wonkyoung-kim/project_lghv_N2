@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n2_join</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- react 구조 -->
+    <div id="root">
+        <!-- container -->
+        <div class="container join">
+            
+            <!-- logo -->
+            <h1 class="hellotv-logo">Hello tv</h1>
+            <h1 class="disneyplus-logo">disney plus</h1>
+
+            <!-- join-step1일경우 step1, join-step2경우 step2, join-step3-1일경우 step3-1, join-step3-2일경우 step3-2가 보여집니다. -->
+            <div class="join-step1">
+                <!-- 스탭 타이틀 -->
+                <h3 class="step-info">
+                    <span class="step-info1">서비스 이용약관 동의</span>
+                    <span class="step-info2">폰번호 입력 및 월정액 구매</span>
+                    <span class="step-info3">디즈니+ 아이디 생성</span>
+                </h3>
+            
+                <!-- 서비스 이용약관 동의 : 로그인/요금제안내 화면에서 가입(시작)버튼눌렀을 떄 제공하는 화면 -->
+                <section class="step step1">
+                    <p class="main-text">
+                        디즈니+를 이용하려면 아래 내용을 확인 후 동의를 눌러주세요.
+                    </p>
+                    <div class="contents">
+                        <div class="terms focus">
+                            <div class="text-area">
+                                <div class="checkbox">
+                                    <input type="checkbox" class="input-checkbox">
+                                    <label>개인정보 제3자 제공에 동의합니다(필수)</label>
+                                </div>
+                                디즈니+ 서비스 결제 및 환불 등에 관한 사항은 LG헬로비전 서비스 이용약관에 따릅니다.
+                                <p>
+                                    <span>•제공하는 항목: 가입번호, 가입/해지정보, 전화번호</span>
+                                    <span>•이용목적: 디즈니+서비스 제공 및 정산 등과 관련된 업무</span>
+                                    <span>•제공받는 자: 월트 디즈니 컴퍼니 코리아 유한책임회사</span>
+                                    <span>•보유 및 이용기간: 구독 취소 내지 해지시까지 또는 관련 법규에 따라 보유</span>
+                                </p>
+                                <span>고객은 동의를 거부할 권리가 있으며, 동의 거부 시 LG헬로비전을 통한 디즈니+ 가입 및 이용이 불가합니다.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-area">
+                        <button type="button" class="button">
+                            <span>이전</span>
+                        </button>
+                        <button type="button" class="button dimmed">
+                            <span>동의</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- //서비스 이용약관 동의 -->
+
+                <!-- 월정액 구매 : 약관동의 후 화면-->
+                <section class="step step2">
+                    <p class="main-text">
+                        디즈니+ 월정액을 구매 하시겠어요?
+                    </p>
+                    <!-- scroll-contents에 bottom-cover/top-cover클래스 추가시 그라데이션 생성 -->
+                    <div class="scroll-contents bottom-cover">
+                        <div class="terms">
+                            <div class="text-area">
+                                <em>LG헬로비전을 통한 디즈니+ 서비스 가입 시 LG헬로비전의 디즈니+ 구독 이용약관이 우선 적용됩니다.</em>
+                                <p>•본 상품은 월정액 요금제이나, 디즈니의 정책에 따라 시청 콘텐츠별 추가 요금이 부과될 수 있습니다.</p>
+                                <p>•본 상품 구매는 계속/반복적인 서비스에 대한 구매를 포함하며, 이용자가 서비스 해지 신청을 하지 않는 이상 이용자의 최초 구매일을 기준으로 요금은 매월 자동 청구됩니다.</p>
+                                <p>•본 상품 구매시부터 디즈니+ 서비스 이용이 시작되며, 디즈니+ 콘텐츠 시청을 위해서는 반드시 본 상품 구매 시 LG헬로비전이 제공하는 안내에 따라 디즈니+ 계정(아이디 및 비밀번호)을 생성 또는 등록을 완료해야 합니다.</p>
+                                <p>•본 상품 해지 신청 시 그 효력은 해당 결제 주기나 무료 이용 기간 종료 시 발생합니다. 해지 신청일부터 결제 주기나 무료 이용 기간 종료 시점까지의 잔여 이용 기간에 대해 환불을 받을 수 없으며, 이용자는 잔여 이용 기간 안 디즈니+ 서비스를 계속 이용할 수 있습니다.</p>
+                                <p>•본 상품 구매일로부터 7일 이내에 구독을 철회할 수 있습니다.</p>
+                                <p>•디즈니+ 회원가입 및 구독은 19세 이상만 가능하며, 디즈니+ 서비스 이용을 위해서는 회원가입 및 구독 시 디즈니+ 이용약관, 개인정보 수집이용 및 기타 정책에 동의해야 합니다.</p>
+                                <em>보다 상세한 LG헬로비전의 디즈니+ 이용약관은<br />LG헬로비전 홈페이지 > 서비스이용약관 > 디즈니+ 에서 확인 가능합니다.</em>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <p>월정액<em>9,900</em><span>(부가세 포함)</span></p><!-- 쿠폰이용대상자일경우 부가세포함 제거 -->
+                            <span>※ 구독권 이용 기간 이후에는 월정액 요금 9,900원(부가세 포함 금액)이 자동으로 LG헬로비전 서비스 이용료에 합산 청구됩니다.</span>
+                        </div>
+                        <div class="scroll">
+                            <span style="transform: translateY(10%)"></span>
+                        </div>
+                    </div>
+                    <p class="sub-text">구매 버튼을 누르시면 LG헬로비전 서비스 이용료에 합산 청구됩니다.</p>
+                    <div class="button-area">
+                        <button type="button" class="button">
+                            <span>취소</span>
+                        </button>
+                        <button type="button" class="button focus">
+                            <span>동의 후 구매</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- //월정액 구매-->
+
+                <!-- 계정 등록하기(문자메시지 발송): 약관동의화면에서 약관동의 완료시 제공, 계정 미생성 고객, 고객센터, 전화, 매장에서 가이한 고객이 A서비스 진입시 제공 -->
+                <section class="step step3-1">
+                    <p class="main-text">
+                        디즈니+를 이용하려면<br /><em>휴대폰에서</em> 계정을 등록해야 해요.
+                    </p>
+                    <div class="contents">
+                        <p class="title-text">휴대폰 번호를 입력해 주세요.</p>
+                        <div class="input-text focus">
+                            <span class="placeholder">- 없이 숫자만 입력해 주세요.</span>
+                            <p class="input-text-wrap">
+                                <span>0</span>
+                                <span>1</span>
+                                <span>0</span>
+                                <span>8</span>
+                                <span>0</span>
+                                <span>8</span>
+                                <span>0</span>
+                                <span>8</span>
+                                <span>0</span>
+                                <span>8</span>
+                                <span>0</span>
+                            </p>
+                        </div>
+                        <p class="sub-text">입력하신 휴대폰 번호로 계정을 등록할 수 있는 <em>문자메시지</em>를 보내드립니다.</p>
+                    </div>
+                    <div class="button-area">
+                        <button type="button" class="button">
+                            <span>종료</span>
+                        </button>
+                        <button type="button" class="button dimmed">
+                            <span>문자메시지 받기</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- //계정 등록하기 -->
+
+                <!-- 계정 만들기: step3-1에서 문자메시지 받기 버튼누르면 제공하는 화면 -->
+                <section class="step step3-2">
+                    <p class="main-text">
+                        010-0000-0000 번호로 문자메시지를 보내드렸어요. <br />
+                        문자메시지에 안내된 &lsquo;디즈니+ 계정 만들기&rsquo; 인터넷 주소(URL)를 누르세요.
+                    </p>
+                    <div class="contents">
+                        <div class="image">
+                            <img src="../assets/image/img-registration2x.png" />
+                        </div>
+                        <p class="etc">※ 문자메시지를 받지 못하셨다면 <em>휴대폰번호 재입력 버튼</em>을 눌러 휴대폰 번호를 다시 한번 입력해 주세요.</p>
+                    </div>
+                    <div class="button-area">
+                        <button type="button" class="button">
+                            <span>휴대폰번호 재입력</span>
+                        </button>
+                        <button type="button" class="button">
+                            <span>로그인</span>
+                        </button>
+                    </div>
+                </section>
+                <!-- //계정 만들기 -->
+                
+            </div>
+
+        </div>
+        <!-- //container -->
+    </div>
+    <!-- //root -->
+</body>
+</html>

@@ -1,0 +1,248 @@
+/* variables */
+$font-regular: 'Yoon Gothic 750', 'YoonGothicPro750', 'Yoon 윤고딕 750';
+$font-bold: 'Yoon Gothic 770', 'YoonGothicPro770', 'Yoon 윤고딕 770';
+$color-primary: #ffc000;
+$color-accent: #b49569;
+$color-pure-white: #fff;
+$color-white: #eee;
+$color-white-divider: rgba(255, 255, 255, .2);
+$color-gray: #999;
+$color-gray-light: #a9a9a9;
+$color-gray-dark: #777;
+$color-pure-black: #000;
+$color-black: #080d19;
+$color-bg-black: #000;
+$color-bg-dimmed: rgba($color-bg-black, .4);
+$color-popup-dimmed: rgba($color-bg-black, .71);
+$color-popup-text: #b1b1b1;
+$color-bg-popup: #2b292c;
+$color-btn-line: #424241;
+$color-bg-btn: #303030;
+$color-bg-btn2: #d4d4d8;
+$color-line: #c0c0c0;
+$color-popup-line: #c2c0c7;
+$color-checkbox-nor: #535358;
+$color-btn-foc: #353539;
+$color-btn-text: #353539;
+
+/* mixins */
+@mixin ir {
+    //image replacement
+    font-size: 0;
+    color: rgba(0, 0, 0, 0);
+}
+
+@mixin ellipsis($line: 1) {
+    overflow: hidden;
+    @if $line==1 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    @else {
+        display: -webkit-box;
+        white-space: normal;
+        /*! autoprefixer: off */ //React 자동 삭제 방지
+        -webkit-line-clamp: $line;
+        /*! autoprefixer: on */
+        -webkit-box-orient: vertical;
+    }
+}
+
+@mixin focus-border {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 0 4px $color-primary;
+}
+
+//vs
+@mixin vs {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    top: 0;
+    left: 0;
+}
+@mixin vs-ib {
+    display: inline-block;
+    content: '';
+}
+
+//background-default
+@mixin background-default {
+    background: {
+        size: cover;
+        repeat: no-repeat;
+        position: center;
+    }
+}
+
+//flex-items-center
+@mixin flex-items-center {
+    display: flex;
+    align-items: center;
+}
+
+// position-center
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//checkbox
+@mixin input-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid $color-checkbox-nor;
+    border-radius: 3px;
+
+    &:checked {
+        @include background-default;
+        position: relative;
+        border: none;
+        &::after {
+            @include vs;
+            @include background-default;
+            width: 20px;
+            height: 20px;
+            background-image: url('../image/ic-check-focus.png');
+        }
+        & + label {
+            font-family: $font-bold;
+            color: $color-primary;
+        }
+    }
+}
+
+//input-text
+@mixin input-text($width: null, $height: null, $bg-color: $color-white) {
+    position: relative;
+    width: $width;
+    height: $height;
+    background-color: $bg-color;
+}
+
+//tooltip
+@mixin tooltip($bg-color: $color-bg-btn) {
+    position: absolute;
+    display: inline-block;
+    padding: 8px 11px;
+    border-radius: 11px;
+    text-align: left;
+    font-size: 1.3rem;
+    line-height: 1.54;
+    background-color: $bg-color;
+    &::before {
+        @include vs;
+        left: unset;
+        top: 18px;
+        right: -3px;
+        width: 9px;
+        height: 9px;
+        border-left: 4px solid $bg-color;
+        border-bottom: 4px solid $bg-color;
+        border-radius: 2px;
+        transform: rotate(-124deg) skewY(-20deg);
+    }
+}
+
+//button
+@mixin button($width: 193px, $height: 60px) {
+    position: relative;
+    width: $width;
+    height: $height;
+    line-height: $height;
+    margin-right: 7px;
+    background-color: $color-bg-btn;
+    span {
+        position: relative;
+        z-index: 1;
+        font: {
+            family: $font-bold;
+            size: 2rem;
+        }
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+    &.focus {
+        &::after {
+            @include vs;
+            $focus-height: $height+4;
+            width: 100%;
+            height: $focus-height;
+            transform: translateY(-2px);
+            background-color: $color-primary;
+        }
+        span {
+            font-size: 2.1rem;
+            color: $color-btn-foc;
+        }
+    }
+    &.dimmed {
+        opacity: 0.6;
+        span {
+            opacity: 0.3;
+        }
+    }
+}
+//popup-button
+@mixin popup-button($width: 132px, $height: 50px) {
+    position: relative;
+    width: $width;
+    height: $height;
+    line-height: $height;
+    margin-right: 7px;
+    border: 1px solid $color-btn-line;
+    background-color: $color-bg-btn;
+    span {
+        position: relative;
+        z-index: 2;
+        font: {
+            family: $font-bold;
+            size: 1.8rem;
+        }
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+    &.focus {
+        &::after {
+            @include vs;
+            $focus-width: $width+16;
+            $focus-height: $height+7;
+            width: $focus-width;
+            height: $focus-height;
+            z-index: 1;
+            transform: translate(-8px, -3.5px);
+            background-color: $color-primary;
+        }
+        span {
+            font-size: 2rem;
+            color: $color-btn-foc;
+        }
+    }
+}
+
+//scroll
+@mixin scroll($width: 4px, $height: 185px) {
+    position: absolute;
+    z-index: 2;
+    width: $width;
+    height: $height;
+    background-color: rgba($color-white, 0.18);
+    span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 107px;
+        background-color: rgba($color-white, 0.8);
+    }
+}
